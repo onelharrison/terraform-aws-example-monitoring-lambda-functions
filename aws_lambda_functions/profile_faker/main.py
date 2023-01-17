@@ -4,6 +4,9 @@ fake = Faker()
 
 
 def handler(event, context):
+    if event["trigger_error"]:
+        raise Exception 
+
     return {
         "statusCode": 200,
         "headers": {"Content-Type": "application/json"},
